@@ -1,12 +1,12 @@
-const makeRequest = (url, type = 'get') => {
-  return fetch(url, {
+const makeRequest = async (url, type = 'get') => {
+  let response = await fetch(url, {
     method: type,
     headers: {
       accept: 'application/json',
       'Content-Type': 'application/json',
     },
-  }).then(checkStatus)
-    .then(parseJson)
+  });
+  return parseJson(checkStatus(response));
 }
 
 export const getProducts = async (page = 1) => {

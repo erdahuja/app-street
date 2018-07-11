@@ -6,20 +6,31 @@ class ProductList extends Component {
   constructor() {
     super();
     this.state = {
-      isLoading: true,
-      products: []
+      isLoading: false,
+      products: [],
+      currentIndex: 1,
     }
   }
   componentDidMount() {
     this.getProducts();
   }
-  getProducts = async () => {
-    const { products } = await getProducts();
-    this.setState({
-        products,
-        isLoading: true,
+  getProducts = async (index = 1) => {
+    const { products } = await getProducts(index);
+    this.setState(prvState => {
+      return {
+        products: [...prvState.products, ...products],
+        isLoading: false,
+        currentIndex: index + 1
+      }
     })
   };
+  _loadMoreItems = () => {
+    var itemsToAdd = 10;
+    this.setState({
+      isLoading: true
+    })
+   this.getProducts(this.state.currentIndex);
+  }
   _renderItems = () => {
     return this.state.products.map(function(product, index) {
       return (
@@ -42,6 +53,7 @@ class ProductList extends Component {
     }
   }
   render() {
+    console.log(this.state);
     return (
       <div>
          {this._renderItems()}

@@ -4,7 +4,7 @@ class ProductDetail extends Component {
   constructor() {
     super();
     this.state = {
-      fetched: true,
+      isLoading: true,
       product: []
     }
   }
@@ -15,7 +15,7 @@ class ProductDetail extends Component {
     const { product } = await getProductDetails('5aec58965a39460004b3f6dd');
     this.setState({
         product,
-        fetched: true,
+        isLoading: true,
     })
   };
   render() {

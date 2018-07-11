@@ -19,4 +19,4 @@ const Product = () => {
   );
 }
 
-export default Home;
+export default Product;
