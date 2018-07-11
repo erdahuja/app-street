@@ -1,0 +1,24 @@
+Assignment
+Given APIs and Design, generate a responsive web-app that matches the UI design provided using the data from the API provided, and host the app on a cloud hosting service.
+Details
+The APIs and UI are designed for an e-Commerce app. The app is expected to have just 2 screens: product listing and product detail. The design and API details for both these screens is given below:
+
+Product Listing:
+UI Design:
+Desktop
+Mobile
+JSON API:
+URL: https://assignment-appstreet.herokuapp.com/api/v1/products?page=<1/2/3/...>
+Method: GET
+
+Product Detail:					
+UI Design:
+Desktop
+Mobile
+JSON API:
+URL: https://assignment-appstreet.herokuapp.com/api/v1/products/:product_id
+Method: GET
+Response Details:
+As seen in the sample detail page the sample product has 2 attributes: Color and Size. This data is defined in the “attribs” key of the response. Each attribute will have multiple options (defined by “options” in the json), the app is expected to map an option to an attribute by matching the “attrib_id” key of an option to the “_id” key of an attribute. The details of a product (name, description, price, sale-price etc.) are obtained by combining the details in “primary_product” json with one of the jsons in the “product_variations” array. Which variation is to be used from the array is decided by the options that are currently selected by the user (The initial option selection is given by the API as “selected_option_ids”)
+Submission
+Candidates are expected to submit a complete and deployable app along with all relevant configurations. The source code is expected to be shared via mail to the following mail id: submissions@appstreet.io
