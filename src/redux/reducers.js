@@ -1,5 +1,8 @@
+const intitialState = {
 
-
-export default {
-  
 };
+
+function appStreet(state = intitialState, action) {
+ 
+  return state;
+}

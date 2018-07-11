@@ -37,11 +37,9 @@ class ProductList extends Component {
     return this.state.products.map(function(product, index) {
       return (
         <Product
-          // src={}
-          // alt="CATS AND ROBOTS... "
-          // style={{ height: 480 }}
-          // key={index}
-          className="infinite-scroll-example__list-item" />
+          product={product}
+          key={index}
+        />
       );
     });
   }
@@ -55,7 +53,7 @@ class ProductList extends Component {
     }
   }
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div>
          {this._renderItems()}
