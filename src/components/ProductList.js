@@ -8,13 +8,16 @@ class ProductList extends Component {
     this.state = {
       isLoading: false,
       products: [],
-      currentIndex: 1,
+      currentIndex: 0,
     }
   }
   componentDidMount() {
     this.getProducts();
   }
   getProducts = async (index = 1) => {
+    this.setState({
+      isLoading: true
+    })
     const { products } = await getProducts(index);
     this.setState(prvState => {
       return {
@@ -25,7 +28,6 @@ class ProductList extends Component {
     })
   };
   _loadMoreItems = () => {
-    var itemsToAdd = 10;
     this.setState({
       isLoading: true
     })
