@@ -6,7 +6,9 @@ const makeRequest = async (url, type = 'get') => {
       'Content-Type': 'application/json',
     },
   });
-  return parseJson(checkStatus(response));
+  response = await response;
+  const result = parseJson(checkStatus(response));
+  return result;
 }
 
 export const getProducts = async (page = 1) => {
@@ -17,11 +19,9 @@ export const getProducts = async (page = 1) => {
 }
 
 export const getProductDetails = async (id) => {
-  console.log(id);
   const url = (
     'https://assignment-appstreet.herokuapp.com/api/v1/products/' + id
   );
-  console.log(url);
   return await makeRequest(url);
 }
 

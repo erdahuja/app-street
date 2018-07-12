@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Product = (props) => {
   const product = props.product;
@@ -7,7 +8,9 @@ const Product = (props) => {
       <nav className="navbar navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
-            <a className="navbar-brand" href="#">{product.name}</a>
+          <Link to={`/details/${product._id}`} className="">
+          <a className="navbar-brand" href="#">{product.name}</a>
+      </Link>
           </div>
           <ul className="nav navbar-nav">
             <li className="active"><a href="#">Product</a></li>
